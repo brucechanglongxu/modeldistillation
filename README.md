@@ -1,3 +1,11 @@
-# simple
+# Model Distillation: Transferring Knowledge, Compressing Intelligence
 
-Simple CNN trained on MNIST data to test GPU utilization A10G. 
+This repository explores the practice and theory of model distillation — a powerful technique for compressing deep neural networks by transferring knowledge from large, overparameterized teacher models to smaller, more efficient student models. While the deep learning community has pushed toward ever-larger foundation models, many deployment settings demand the opposite: lightweight architectures capable of fast inference, low memory usage, and energy efficiency, particularly on edge devices or constrained hardware environments.
+
+Model distillation operates on the insight that the outputs of a teacher model encode rich information beyond ground-truth labels. By mimicking the softened output distributions, intermediate representations, or decision boundaries of a trained teacher, student models can generalize more effectively than if they were trained solely on raw data. In doing so, distillation creates a bridge between expressivity and efficiency, allowing compact models to inherit the behavior of more complex systems.
+
+This repository provides an implementation of a simple convolutional neural network trained on the MNIST dataset. It includes distillation variants that compare training from labels versus training under the supervision of a teacher model. In addition to investigating accuracy trade-offs, the implementation also serves as a platform for analyzing GPU utilization — specifically on NVIDIA A10G hardware — and for understanding how model structure and batch size interact with hardware acceleration.
+
+While MNIST is deliberately lightweight, the architecture and training scripts are designed to be extensible. Future work will expand this repository to include more expressive teacher models, temperature scaling experiments, attention-based transfer, and evaluations on more challenging datasets like CIFAR-100 and TinyImageNet. The broader goal is to build a systematic understanding of what gets transferred during distillation, how capacity and supervision shape learning, and where the limits of compression lie.
+
+This project treats distillation not just as a compression trick, but as a conceptual lens on representation learning: What does it mean for one model to "teach" another? What are the minimal ingredients needed to generalize? And how can we use these principles to guide design choices in real-world machine learning systems?
